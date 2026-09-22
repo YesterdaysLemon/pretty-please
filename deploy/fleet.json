@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "host": {"name":"Alireza VPS","platform":"Ubuntu + Docker","edge":"Caddy","manager":"Deploy Manager"},
+  "manager": {"hostname":"deploy.alirezaafshan.com","port":9019,"repository":"YesterdaysLemon/deploy-manager","branch":"main","probeIntervalMs":30000,"probeTimeoutMs":2500},
+  "apps": [{
+    "id":"pretty-please","name":"please.","description":"An interactive philosophical essay on consent, delegated will, and who gets to say yes.","kind":"archive",
+    "repository":"YesterdaysLemon/pretty-please","branch":"main","secretEnv":"PRETTY_PLEASE_DEPLOY_WEBHOOK_SECRET",
+    "repoDir":"/opt/pretty-please/app","repoUser":"deploy-manager","imageName":"pretty-please","containerName":"pretty-please","candidateContainerName":"pretty-please-candidate",
+    "publicPort":3230,"candidatePort":3231,"containerPort":8080,"healthPath":"/healthz","hostname":"please.alirezaafshan.com"
+  }],
+  "datastores": []
+}

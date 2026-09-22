@@ -1,0 +1,9 @@
+node_modules/
+dist/
+native/bin/
+native/obj/
+output/
+work/
+.playwright-cli/
+*.user
+.env

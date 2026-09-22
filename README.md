@@ -21,7 +21,7 @@ npm run dev
 npm run check
 ```
 
-Default port is 8080. Set `PORT` to change it. `/healthz` returns the exact release SHA when `RELEASE_SHA` is set. The Docker image runs as an unprivileged user.
+Default port is 8080. Set `PORT` to change it. `/healthz` returns the exact release SHA, read from Git during the Docker metadata stage. The final image includes only that identifier and the application files, and runs as an unprivileged user. For a local preview, `RELEASE_SHA` can override the reported identifier.
 
 ## Privacy and accessibility
 

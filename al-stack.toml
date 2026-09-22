@@ -15,3 +15,37 @@
 ["commands"]
 "dev" = "npm run dev"
 "check" = "npm run check"
+
+[["skills"]]
+"name" = "frontend-quality"
+"source" = "local:frontend-quality"
+"source_revision" = "content-addressed"
+"source_digest" = "4977310b4f8daece7007b63acbf600f71ce472eb369e60ab9346d3f52a9d39aa"
+"installed_digest" = "4977310b4f8daece7007b63acbf600f71ce472eb369e60ab9346d3f52a9d39aa"
+"local_override" = false
+
+[["skills"]]
+"name" = "vps-operations"
+"source" = "local:vps-operations"
+"source_revision" = "content-addressed"
+"source_digest" = "d8b894b7de7728c12c19dbdd18363bd14c4d707171411a3d32ed000ac42fe918"
+"installed_digest" = "d8b894b7de7728c12c19dbdd18363bd14c4d707171411a3d32ed000ac42fe918"
+"local_override" = false
+
+[["skills"]]
+"name" = "playwright"
+"source" = "local:playwright"
+"source_revision" = "content-addressed"
+"source_digest" = "ab715a1430b77d31579c90b28fdfe38f89234ae56984fe2b8d0e17789a361d9c"
+"installed_digest" = "ab715a1430b77d31579c90b28fdfe38f89234ae56984fe2b8d0e17789a361d9c"
+"local_override" = false
+
+[["tools"]]
+"name" = "node"
+"kind" = "cli"
+"command" = "node"
+
+[["tools"]]
+"name" = "github"
+"kind" = "cli"
+"command" = "gh"

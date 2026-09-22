@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { extname, resolve, sep } from 'node:path';
 
 const root = fileURLToPath(new URL('./public/', import.meta.url));
+let builtSha = 'local';
+try { builtSha = (await readFile(new URL('./RELEASE_SHA', import.meta.url), 'utf8')).trim(); } catch (error) { if (error.code !== 'ENOENT') throw error; }
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json; charset=utf-8', '.txt': 'text/plain; charset=utf-8' };
 export const server = createServer(async (req, res) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -15,7 +17,7 @@ export const server = createServer(async (req, res) => {
   catch { res.writeHead(400); return res.end('Bad request'); }
   if (pathname === '/healthz') {
     res.writeHead(200, { 'Content-Type': types['.json'], 'Cache-Control': 'no-store' });
-    return res.end(req.method === 'HEAD' ? undefined : JSON.stringify({ status: 'ok', app: 'pretty-please', version: '0.1.0', sha: process.env.RELEASE_SHA || 'local' }));
+    return res.end(req.method === 'HEAD' ? undefined : JSON.stringify({ status: 'ok', app: 'pretty-please', version: '0.1.0', sha: process.env.RELEASE_SHA || builtSha }));
   }
   const target = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
   if (!target.startsWith(root.endsWith(sep) ? root : root + sep) || pathname.includes('\\') || pathname.includes('\0')) { res.writeHead(404); return res.end('Not found'); }

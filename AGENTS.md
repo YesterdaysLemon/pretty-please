@@ -11,6 +11,15 @@ Project commands:
 - dev: `npm run dev`
 - check: `npm run check`
 
+Project skills (load when relevant):
+- `frontend-quality`: `.agents/skills/frontend-quality/SKILL.md`. Claude's copy is mirrored in `.claude/skills`.
+- `vps-operations`: `.agents/skills/vps-operations/SKILL.md`. Claude's copy is mirrored in `.claude/skills`.
+- `playwright`: `.agents/skills/playwright/SKILL.md`. Claude's copy is mirrored in `.claude/skills`.
+
+Declared tools (verify availability in the intended agent):
+- node (cli): `node`.
+- github (cli): `gh`.
+
 Edit project guidance outside this managed section. Use `al-stack configure` for its fields and `al-stack check .` for setup checks. Run the actual project checks for behavioral validation.
 <!-- al-stack:project:end -->
 

@@ -1,7 +1,13 @@
+FROM node:22-alpine AS revision
+RUN apk add --no-cache git
+WORKDIR /source
+COPY .git ./.git
+RUN git rev-parse HEAD > /release-sha
+
 FROM node:22-alpine
 WORKDIR /app
-ARG RELEASE_SHA=unknown
-ENV NODE_ENV=production PORT=8080 RELEASE_SHA=$RELEASE_SHA
+ENV NODE_ENV=production PORT=8080
+COPY --from=revision --chown=node:node /release-sha ./RELEASE_SHA
 COPY --chown=node:node server.mjs ./
 COPY --chown=node:node public ./public
 USER node

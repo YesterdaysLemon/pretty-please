@@ -25,7 +25,7 @@ jobs:
       - name: Validate application
         run: |
           npm run check
-          docker build --build-arg RELEASE_SHA="$GITHUB_SHA" -t pretty-please:validate .
+          docker build -t pretty-please:validate .
       - name: Notify Deploy Manager
         if: >-
           vars.DEPLOY_ENABLED == 'true' && github.ref == 'refs/heads/main' &&
